@@ -1,7 +1,7 @@
 # Site settings
 title: Deadpool's Security Blog
 description: "Hi, I'm Tushar. I\'m a Musician, Magician & a nerd for Application Security. This blog is about some of the stuffs I do"
-url: 'http://127.0.0.1:4000'
+url: 'http://deadpool.sh'
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
