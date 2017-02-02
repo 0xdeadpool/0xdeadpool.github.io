@@ -31,8 +31,8 @@ It got me thinking that quotes might have been encoded and might have broken the
 
 ![alt text](../../images/debug_mode.png "Debugging")
 
-So after debugging I could see that single & double quotes were URL encoded. The **exec()** method clearly takes an argu
-as a string. Now I either need to find characters within the error code and take bits & pieces and pass it to exec using **substring()**, which is still pretty difficult or I need to find a way to pass my string without using double quotes or single qutoes. I wanted to go with the second approach. Java supports nested functions and if im able to find a method which can output `id` or `cat etc/passwd`, this would then be passed to **exec()** and then my payload would run successfully.
+So after debugging I could see that single & double quotes were URL encoded. The **exec()** method clearly takes an argument
+as a string. Now I either need to find characters within the error code and take bits & pieces and pass it to exec using **substring()**, which is still pretty difficult or I need to find a way to pass my string without using double quotes or single qutoes. I wanted to go with the second approach. Java supports nested functions and if I'm able to find a method which can output `id` or `cat etc/passwd`, this would then be passed to **exec()** and then my payload would run successfully.
 
 After going through some Java classes I stumbled upon the following:
 
