@@ -8,7 +8,7 @@ tags: [security]
 
 This is my very frist blog post which was pending for a long time (almost a year). I would like to share a particular Remote Code Execution (RCE) in Java Springboot framework. I was highly inspired to look into this vulnerability after I read this article by **David Vieira-Kurz**, which can be found at his [blog](http://secalert.net/#cve-2016-4977). His article talks about an RCE in the Spring Security OAuth framework and how the Whitelabel error page can be used to trigger code execution.
 
-So this ment that any Whitelabel Error Page which reflected user input was vulnerable to it. This was because user input was being treated in as Springs Expression Language (***SpEL***). So during my pentest I had came accross a particualr URL which triggered this Whitelabel Error page.
+So this meant that any Whitelabel Error Page which reflected user input was vulnerable to it. This was because user input was being treated in as Springs Expression Language (***SpEL***). So during my pentest I had come across a particualr URL which triggered this Whitelabel Error page.
 
 **URL:** `https://<domain>/BankDetailForm?id=abc${12*12}abc`
 
@@ -31,7 +31,8 @@ It got me thinking that quotes might have been encoded and might have broken the
 
 ![alt text](../../images/debug_mode.png "Debugging")
 
-So after debugging I could see that single & double quotes were URL encoded. The **exec()** method clearly takes an argument as a string. Now I either need to find characters within the error code and take bits & pieces and pass it to exec using **substring()**, which is still pretty difficult or I need to find a way to pass my string without using double quotes or single qutoes. I wanted to go with the second approach. Java supports nested functions and if im able to find a method which can output `id` or `cat etc/passwd`, this would then be passed to **exec()** and then my payload would run successfully.
+So after debugging I could see that single & double quotes were URL encoded. The **exec()** method clearly takes an argu
+as a string. Now I either need to find characters within the error code and take bits & pieces and pass it to exec using **substring()**, which is still pretty difficult or I need to find a way to pass my string without using double quotes or single qutoes. I wanted to go with the second approach. Java supports nested functions and if im able to find a method which can output `id` or `cat etc/passwd`, this would then be passed to **exec()** and then my payload would run successfully.
 
 After going through some Java classes I stumbled upon the following:
 
@@ -54,7 +55,7 @@ lang.Character).toString(105).concat(T(java.lang.Character).toString(100)))}
 ~~~
 ![alt text](../../images/rce_blind.png "id executes")
 
-The **getRuntime()** method returns the runtime object which we got on screen. Now we have some sort of a Blind RCE with which we can run any commands. I wanted to go a step further and get the output on screen (just for fun). At this point I wanted to do a `cat etc/passwd` and print the result onto the Whitelabel Error page. This ment for every character I would need to write its ASCII equivalent in the format `concat(T(java.lang.Character).toString(<ascii value>))`. Wrote a quick sloppy python script to acheive this:
+The **getRuntime()** method returns the runtime object which we got on screen. Now we have some sort of a Blind RCE with which we can run any commands. I wanted to go a step further and get the output on screen (just for fun). At this point I wanted to do a `cat etc/passwd` and print the result onto the Whitelabel Error page. This meant for every character I would need to write its ASCII equivalent in the format `concat(T(java.lang.Character).toString(<ascii value>))`. Wrote a quick sloppy python script to acheive this:
 
 **Python Script:**
 
