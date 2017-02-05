@@ -2,7 +2,7 @@
 title:  "Spring Boot RCE"
 date:   2017-02-02 23:11:23
 categories: [security]
-tags: [security,rce]
+tags: [security,RCE,pentest]
 ---
 
 
@@ -94,7 +94,7 @@ The payload became quite huge. To sum up, I used the Apache IOUtils library. I c
 
 ![alt text](../../images/rce_new.jpg "etc/passwd")
 
-All this hassle just to get around the single and double quotes. However I feel there might have been easier ways to go about it. Tackling out the hurdles and troubleshooting and debugging and finally getting what you want is such a serene feeling. This bug was a learning curve for me and I learned a lot of things alongside exploiting this. If you are using an older version of Spring Boot, I would highly advise you to upgrade it. The vulnearbilty has been patched since Spring Boot 1.2.8.
+All this hassle just to get around the single and double quotes. However I feel there might have been easier ways to go about it. Tackling out the hurdles and troubleshooting and debugging and finally getting what you want is such a serene feeling. This bug was a learning curve for me and I learned a lot of things alongside exploiting this. If you are using an older version of Spring Boot, I would highly advise you to upgrade it. The vulnearbilty has been patched since **Spring Boot 1.2.8**.
 
 I hope you guys enjoyed this blog. Please feel free to let me know your thoughts or any doubts you have. You can also catch me up on [Twitter][twitter] or shoot me an email.
 
