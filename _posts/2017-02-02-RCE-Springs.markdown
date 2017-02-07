@@ -2,7 +2,7 @@
 title:  "Spring Boot RCE"
 date:   2017-02-02 23:11:23
 categories: [security]
-tags: [Security,RCE,Pentest]
+tags: [Security,RCE,Pentest,SSTI]
 ---
 
 
