@@ -1,6 +1,6 @@
 # Site settings
 title: Deadpool's Security Blog
-description: "Hi, I'm Tushar. I\'m a Musician, Magician & a nerd for Application Security. This blog is about some of the stuffs I do"
+description: "Hi, I'm Tushar. I\'m a Musician, Magician & a nerd for Application Security. This blog is about some of the stuff I do"
 url: 'http://deadpool.sh'
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
