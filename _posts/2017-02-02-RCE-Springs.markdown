@@ -8,7 +8,7 @@ tags: [Security,RCE,Pentest,SSTI]
 
 This is my very frist blog post which was pending for a long time (almost a year). I would like to share a particular Remote Code Execution (RCE) in Java Springboot framework. I was highly inspired to look into this vulnerability after I read this article by **David Vieira-Kurz**, which can be found at his [blog](http://secalert.net/#cve-2016-4977). His article talks about an RCE in the Spring Security OAuth framework and how the Whitelabel error page can be used to trigger code execution.
 
-So this meant that any Whitelabel Error Page which reflected user input was vulnerable to it. This was because user input was being treated in as Springs Expression Language (***SpEL***). So during my pentest I had come across a particualr URL which triggered this Whitelabel Error page.
+So this meant that any Whitelabel Error Page which reflected user input was vulnerable to it. This was because user input was being treated in as Springs Expression Language (***SpEL***). So during my pentest I had come across a particular URL which triggered this Whitelabel Error page.
 
 **URL:** `https://<domain>/BankDetailForm?id=abc${12*12}abc`
 
