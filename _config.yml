@@ -26,6 +26,7 @@ defaults:
 destination: _site
 paginate: 10
 permalink: /:year/:title/
+permalink: /404.html
 markdown: kramdown
 highlighter: rouge
 
