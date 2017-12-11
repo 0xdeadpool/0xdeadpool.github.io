@@ -2,7 +2,7 @@
 title: Deadpool's Security Blog
 description: "Hi, I'm Tushar. I\'m a Musician, Magician & a nerd for Application Security. This blog is about some of the stuff I do"
 url: 'http://deadpool.sh'
-baseurl: '//'
+baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
